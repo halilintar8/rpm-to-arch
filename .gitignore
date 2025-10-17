@@ -1,0 +1,51 @@
+# Ignore build artifacts and extracted package directories
+pkg/
+src/
+*.pkg.tar.zst
+*.tar.xz
+*.tar.gz
+*.deb
+*.rpm
+*.cpio
+*.iso
+
+# Ignore large generated files
+*.zip
+*.7z
+*.tar
+*.tgz
+*.xz
+*.zst
+
+# Ignore editor and system files
+*~
+*.swp
+.DS_Store
+Thumbs.db
+
+# Ignore logs and temp files
+*.log
+*.tmp
+*.bak
+
+# Ignore Python/Ruby cache
+__pycache__/
+*.pyc
+*.pyo
+*.gem
+*.bundle
+
+# Ignore node/npm stuff if present
+node_modules/
+
+# Ignore vscode or JetBrains configs
+.vscode/
+.idea/
+
+# Optional: ignore GPG signatures or keys
+*.sig
+*.asc
+
+# Ignore the generated browser package directories
+prisma-access-browser-stable-*/
+

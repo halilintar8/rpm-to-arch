@@ -1,0 +1,20 @@
+
+cd package_folder
+makepkg -s
+
+sudo pacman -S ruby rpm-tools base-devel
+
+nano rpmtoarch
+chmod +x rpmtoarch
+
+./rpmtoarch prisma-access-browser-stable-141-141.19.3.108-22987778.19.3.108-1.x86_64.rpm
+
+cd prisma_access_browser_stable_*
+makepkg -s 
+#or 
+makepkg -sf
+
+sudo pacman -U prisma-access-browser-stable-141*.pkg.tar.zst
+
+
+
