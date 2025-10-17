@@ -1,0 +1,51 @@
+# Maintainer: Local Build <you@localhost>
+
+pkgname=prisma-access-browser-stable
+pkgver=141.19.3.108
+pkgrel=1
+pkgdesc="Prisma Access Browser — a secure enterprise browser providing end-to-end protection for corporate applications and assets without compromising user experience."
+arch=('x86_64')
+url="https://get.pabrowser.com"
+license=('custom')
+
+depends=(
+  'alsa-lib'
+  'gtk3'
+  'gtk4'
+  'libcups'
+  'libcurl-gnutls'
+  'libx11'
+  'libxcb'
+  'libxcomposite'
+  'libxdamage'
+  'libxext'
+  'libxfixes'
+  'libxkbcommon'
+  'libxrandr'
+  'mesa'
+  'nspr'
+  'nss'
+  'pango'
+  'qt5-base'
+  'qt6-base'
+  'ttf-liberation'
+  'xdg-utils'
+)
+
+# The RPM file to convert
+source=("prisma-access-browser-stable-141-141.19.3.108-22987778.19.3.108-1.x86_64.rpm")
+sha256sums=('SKIP')
+
+prepare() {
+  echo "Preparing package directory..."
+  cp "${srcdir}/${source[0]}" "${srcdir}/package.rpm"
+}
+
+package() {
+  echo "Extracting files from RPM..."
+  mkdir -p "${pkgdir}"
+  cd "${pkgdir}"
+  rpm2cpio "${srcdir}/package.rpm" | bsdtar -xvf - --no-same-owner
+}
+
+

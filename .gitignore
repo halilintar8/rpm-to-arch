@@ -46,6 +46,7 @@ node_modules/
 *.sig
 *.asc
 
-# Ignore the generated browser package directories
-prisma-access-browser-stable-*/
-
+# Ignore generated package directories
+prisma-access-browser-stable-*/pkg/
+prisma-access-browser-stable-*.rpm
+prisma-access-browser-stable-*.pkg.tar.zst
