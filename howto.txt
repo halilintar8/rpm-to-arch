@@ -1,20 +1,19 @@
-
-cd package_folder
-makepkg -s
-
+# 1. Install required dependencies
+sudo pacman -Syu
 sudo pacman -S ruby rpm-tools base-devel
 
-nano rpmtoarch
+# 2. Prepare the script
+nano rpmtoarch      # (or edit it as needed)
 chmod +x rpmtoarch
 
+# 3. Convert the RPM package to an Arch PKGBUILD
 ./rpmtoarch prisma-access-browser-stable-141-141.19.3.108-22987778.19.3.108-1.x86_64.rpm
 
-cd prisma_access_browser_stable_*
-makepkg -s 
-#or 
-makepkg -sf
+# 4. Enter the generated package directory
+cd prisma-access-browser-stable-141-141_19_3_108-22987778_19_3_108-1
 
+# 5. Build the Arch package
+makepkg -sf   # (use -s to install dependencies if needed)
+
+# 6. Install the generated package
 sudo pacman -U prisma-access-browser-stable-141*.pkg.tar.zst
-
-
-
